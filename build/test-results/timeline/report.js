@@ -1,0 +1,4 @@
+$(document).ready(function() {
+CucumberHTML.timelineItems.pushArray([{"id":"687ec5e7-e165-44aa-87a6-ed202e41da52","feature":"Search by keyword","scenario":"Searching for 'green'","start":1749764701741,"group":40,"content":"","tags":"@green,","end":1749764707033,"className":"passed"},{"id":"1445b71b-cc0e-4faf-b339-a079b70b2d9f","feature":"Search by keyword","scenario":"Searching for 'red'","start":1749764701741,"group":37,"content":"","tags":"@red,","end":1749764707190,"className":"passed"}]);
+CucumberHTML.timelineGroups.pushArray([{"id":37,"content":"Thread[#37,ForkJoinPool-2-worker-1,5,main]"},{"id":40,"content":"Thread[#40,ForkJoinPool-2-worker-2,5,main]"}]);
+});
