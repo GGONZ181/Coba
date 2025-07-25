@@ -70,7 +70,7 @@ Feature: Aumento de cupo al corresponsal bancario
 	And debe llegarle al correo de acuerdo a lo que esta en datos seguros
 	And al numero celular que tenga en datos seguro indicando que le llego un link al correo
 	
-	********************************************************************** REVISAR ******
+	#********************************************************************** REVISAR ******
 	#TC_Botón Atrás del header
     Scenario: Botón Atrás del header
     Given estoy en la pantalla aumento de cupo
@@ -88,7 +88,7 @@ Feature: Aumento de cupo al corresponsal bancario
 	When el especialista digita 
 	
 	
-	el usuario "<usuario>" y la contraseña "<contraseña>"
+	#el usuario "<usuario>" y la contraseña "<contraseña>"
 	Then muestra recuadro con texto: "Te quedan 2 intentos de ingreso o se bloqueará el usuario" y debajo al lado derecho botón azul con texto Entendido
  
 	Examples:
@@ -97,12 +97,12 @@ Feature: Aumento de cupo al corresponsal bancario
 	  
 	
 	
-	paso 1 de 3  -> lleva a la bandeja de entrada
-	paso 2 de 3  -> lleva al paso 1
-	paso 3 de 3  -> lleva al paso 2
+	#paso 1 de 3  -> lleva a la bandeja de entrada
+	#paso 2 de 3  -> lleva al paso 1
+	#paso 3 de 3  -> lleva al paso 2
 	
 	
-	********************************************************************** REVISAR ******
+	#********************************************************************** REVISAR ******
 	
 	#TC_Botón Abandonar del header
     Scenario: Botón Abandonar del header

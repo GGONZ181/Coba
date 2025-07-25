@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Autenticación de usuario en el sistema" skipped="0" tests="1" time="106.77" timestamp="2025-07-25 05:08:15"><testcase name="Inicio de sesión Exitoso"><failure message="Expected condition failed: waiting for By Shadow DOM: find the By.cssSelector: button element inside shadow doms: [sp-ml-modal:nth-of-type(0)] to be present (tried for 5 second(s) with 100 milliseconds interval)&#10;Build info: version: '4.29.0', revision: '5fc1ec94cb'&#10;System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'&#10;Driver info: driver.version: unknown" type="net.thucydides.core.webdriver.exceptions.ElementShouldBePresentException">Expected condition failed: waiting for By Shadow DOM: find the By.cssSelector: button element inside shadow doms: [sp-ml-modal:nth-of-type(0)] to be present (tried for 5 second(s) with 100 milliseconds interval)
+Build info: version: '4.29.0', revision: '5fc1ec94cb'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: driver.version: unknown</failure><system-err>Expected condition failed: waiting for By Shadow DOM: find the By.cssSelector: button element inside shadow doms: [sp-ml-modal:nth-of-type(0)] to be present (tried for 5 second(s) with 100 milliseconds interval)
+Build info: version: '4.29.0', revision: '5fc1ec94cb'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.7'
+Driver info: driver.version: unknown&#13;
+testing.tasks.LoginCredenciales.performAs(LoginCredenciales.java:57)&#13;
+testing.stepdefinitions.LoginDefinitions.digitarCredenciales(LoginDefinitions.java:16)&#13;
+</system-err></testcase></testsuite>

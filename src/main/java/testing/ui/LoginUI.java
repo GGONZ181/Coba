@@ -12,11 +12,26 @@ public class LoginUI {
 
     public static final Target ERROR1 = Target.the("Mensaje error")
             .located(ByShadow.cssSelector(
-                    "slot[name='content']",    // Selector interno
-                    "sp-ml-modal:nth-of-type(4)"  // Shadow host (cuarto en orden)
+                    "slot[name='content']",    // Selector interno final
+                    "sp-ml-modal:nth-of-type(4)"     // Shadow host (cuarto en orden)
             ));
 
     public static final String MNJ_ERROR1 = "Te quedan 2 intentos de ingreso o se bloqueará el usuario.";
+
+
+    public static final Target ERROR2 = Target.the("Mensaje error")
+            .located(ByShadow.cssSelector(
+                    "slot[name='content']",    // Selector interno final
+                    "sp-ml-modal:nth-of-type(4)"     // Shadow host (cuarto en orden)
+            ));
+
+    public static final String MNJ_ERROR2 = "Te queda 1 intento de ingreso o se bloqueará el usuario.";
+
+    public static final Target BOTON_ENTENDIDO = Target.the("Botón Entendido ")
+            .located(ByShadow.cssSelector(
+                    "button", //#\\30 [normalize-space()='Entendido']",               // Selector interno final
+                    "sp-ml-modal:nth-of-type(4)"  // Shadow host (cuarto en orden)
+            ));
 
 
 
@@ -38,5 +53,16 @@ public class LoginUI {
             .located(ByShadow.cssSelector(
                     "button",
                     "sp-ml-xcenter-login-form"
+            ));
+
+    public static final Target BTN_SALIDA_SEGURA = Target.the("boton Salida Segura")
+            .located(ByShadow.cssSelector(
+                    "button",
+                    "sp-ml-header"
+            ));
+    public static final Target BTN_SALIDA_ACEPTAR = Target.the("boton Aceptar Salida Segura")
+            .located(ByShadow.cssSelector(
+                     "button",             // Selector interno final
+                          "sp-ml-modal:nth-of-type(0)"  // Shadow nivel 1
             ));
 }

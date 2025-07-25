@@ -1,18 +1,12 @@
 Feature: Autenticación de usuario en el sistema
 
 Background:
-	Given que el usuario se encuntra en la pagina de Login
+	Given que el usuario se encuentra en la pagina de Login
 
 	@LoginExitoso
 	Scenario: Inicio de sesión Exitoso	
 	When el especialista digita su usuario y contraseña correcto
 	Then valida el texto de la pagina
-
-
-
-
-   	# cambio de prueba
-	# cambio de prueba 2
 
 	#intento 1
 	@LoginIncorrecto1
@@ -26,13 +20,15 @@ Background:
  
 	  
 	#intento 2
+	@LoginIncorrecto2
 	Scenario Outline: Inicio de sesión con credenciales incorrectas segundo intento
 	When el especialista digita el usuario "<usuario>" y la contraseña "<contraseña>"
-	Then muestra mensaje "Te quedan 1 intentos de ingreso o se bloqueará el usuario" 
+	 # por segunda vez
+	Then muestra mensaje Te quedan 1 intentos de ingreso o se bloqueará el usuario
  
 	Examples:
 	  | usuario         | contraseña     |
-	  | usuario_falso   | password123    |
+	  | usuario_falsodos   | password123    |
 	  
 
 	#intento 3
