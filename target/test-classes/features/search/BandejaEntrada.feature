@@ -1,9 +1,13 @@
 Feature: Filtros de Bandeja de Entrada
-
     Background:
-        Given que el usuario se encuentra en la bandeja de entrada
+        Given que el usuario se encuentra en la pagina de Login
+        When el especialista digita su usuario y contraseña correcto
+        Then valida el texto de la pagina
+#    Background:
+#        Given que el usuario se encuentra en la bandeja de entrada
 
     #Todas
+    @SolicitudesEstados
     Scenario Outline: Filtro de solicitudes por todos los estados
         When se selecciona el estado Todas
         And filtro "<identificacion>"
@@ -134,7 +138,7 @@ Feature: Filtros de Bandeja de Entrada
         And se seleccione una "<fecha_inicio>"
         And se seleccione una "<fecha_final>"
         And se prima el boton de descarga
-        Then debe generar un toat informativo con texto "No hay solicitudes en ese rango de fechas"
+        Then debe generar un toast informativo con texto "No hay solicitudes en ese rango de fechas"
 
         Examples:
             | fecha_inicio | fecha_final |

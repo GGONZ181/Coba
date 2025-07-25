@@ -37,5 +37,21 @@ public class LoginDefinitions {
                 seeThat(TextoQuestion.title(ERROR1), Matchers.equalTo(MNJ_ERROR1))
         );
     }
+/*
+    //TERCER FEATURE
+    @When("el especialista digita el usuario {string} y la contraseña {string} por segunda vez")
+    public void digitarCredenciales(String usuario, String clave, Boolean cerrarModal) {
+        ACTOR.attemptsTo(LoginCredenciales.incorrectas(usuario,clave,cerrarModal)),
+                ACTOR.attemptsTo(LoginCredenciales.conCredencialesYCierreDeModal(usuario,clave,cerrarModal)),
+                ACTOR.attemptsTo(LoginCredenciales.conCredencialesYCierreDeModal(usuario,clave,cerrarModal))
+    }
 
+    @Then("muestra mensaje: Te quedan 1 intentos de ingreso o se bloqueará el usuario")
+    public void verificaMensajeError() {
+        ACTOR.should(
+                seeThat(TextoQuestion.title(ERROR2), Matchers.equalTo(MNJ_ERROR2))
+        );
+    }
+
+ */
 }
