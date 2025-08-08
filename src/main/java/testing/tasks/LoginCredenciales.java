@@ -49,14 +49,16 @@ public class LoginCredenciales implements Task {
             );
             Thread.sleep(10000); // Espera 10 segundos
 
-            actor.attemptsTo(
+           /* actor.attemptsTo(
                 Click.on(BTN_SALIDA_SEGURA)
             );
             Thread.sleep(10000); // Espera 10 segundos
 
             actor.attemptsTo(
                     Click.on(BTN_SALIDA_ACEPTAR)
+
             );
+            */
 /*
 // espera explicita con wait
 //espera explícita con la clase Wait, puedes hacerlo con la tarea WaitUntil, que es parte del paquete net.serenitybdd.screenplay.waits.
@@ -73,6 +75,7 @@ public class LoginCredenciales implements Task {
                     WaitUntil.the(BOTON_ENTENDIDO, isVisible()).forNoMoreThan(5).seconds(),
                     Click.on(BOTON_ENTENDIDO)
             );
+
         };
 */
 

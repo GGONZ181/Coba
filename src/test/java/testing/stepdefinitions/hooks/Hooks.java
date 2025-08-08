@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 public class Hooks {
 
     private WebDriver driver = Serenity.getDriver();
-    public static final Actor ACTOR = Actor.named("Edwar");
+    public static final Actor ACTOR = Actor.named("Pepito");
 
     @Before
     public void setUp(Scenario scenario) {

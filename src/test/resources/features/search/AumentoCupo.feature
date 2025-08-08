@@ -113,6 +113,21 @@ Feature: Aumento de cupo al corresponsal bancario
     When se da clic en el botón Abandonar del Header
     Then se muestra la bandeja de entrada
  
- 
+
+      ### revisar estos rechazos
+  Scenario Outline: Rechazos creación coba
+    Given estoy en la pantalla de creacion Coba
+    When se haga la consulta del "<numero_documento>" cliente
+    And se ingrese "<codigo_oficina>"
+    And se de clic en el boton Solicitar cupo
+    Then al hacer las validaciones de motor se debe mostrar el "<motivo_rechazo>"
+
+    Examples:
+      | numero_documento | codigo_oficina | motivo_rechazo                                        |
+      | 98500501         | 0012           | "Los datos seguros del cliente no están actualizados" |
+    ***  | 13957639         | 0019           | "No puedes iniciar el proceso porque se realizó un aumento de cupo hace menos de 6 meses." |
+      | 98400402         | 0021           | "El resultado del estudio es negativo porque el corresponsal tiene cuentas embargadas en el Banco de Bogotá" |
+      | 20390847         | 0013           | "El resultado del estudio es negativo porque no cumples con las políticas internas del Banco de Bogotá." |
+
 
   

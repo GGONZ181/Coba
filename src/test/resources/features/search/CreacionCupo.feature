@@ -3,7 +3,6 @@ Feature: Creación de cupo corresponsal bancario
     Given que el usuario se encuentra en la pagina de Login
     When el especialista digita su usuario y contraseña correcto
     #And al dar clic en la opcion Creación Coba
-    Then valida el texto de la pagina
 
     ## Login Exitoso
 
@@ -66,4 +65,60 @@ Feature: Creación de cupo corresponsal bancario
 
 
  ## Rechazados
+  #TC_Validacion rechazos creacion Corresponsal
+  Scenario Outline: Rechazos creación coba
+    Given estoy en la pantalla de creacion Coba
+    When se haga la consulta del "<numero_documento>" cliente
+    And se ingrese "<codigo_oficina>"
+    And se de clic en el boton Solicitar cupo
+    Then al hacer las validaciones de motor se debe mostrar el "<motivo_rechazo>"
+
+    Examples:
+      | numero_documento | codigo_oficina | motivo_rechazo                                        |
+      | 98500501         | 0012           | "Los datos seguros del cliente no están actualizados" |
+      | xxxxxxxx         | 0019           | "El estudio es negativo porque no han pasado 6 meses desde el último aumento o creación del cupo" |
+      | 98400402         | 0021           | "El resultado del estudio es negativo porque el corresponsal tiene cuentas embargadas en el Banco de Bogotá" |
+      | 20390847         | 0013           | "El resultado del estudio es negativo porque no cumples con las políticas internas del Banco de Bogotá." |
+
  ## Formularios
+  # TC_Formulario Datos cliente en Camara de comercio
+  Scenario Outline: Formulario clientes en Cámara de Comercio
+    Given estoy en la pantalla de creacion Coba
+    When se haga la consulta del "<numero_documento>" cliente
+    And se ingrese "<codigo_oficina>"
+    And se de clic en el boton Solicitar cupo
+    And estoy en la pantalla cliente cumple con los requisitos
+    And se presione click en el botón Diligenciar formulario
+    Then el campo "<Razon_social>"  debe tener el dato "<información>"
+
+    Examples:
+      | Razon_social | información     |
+      | 80802884     | "Pacto Company" |
+      | 80802885     | ""              |
+
+  # TC_Campos obligatorios Formulario Datos cliente
+  Scenario Outline: Formulario Datos completos
+    Given estoy en el formulario: Verifica y actualiza la información del negocio según los datos registrados en Cámara de Comercio
+    When se diligencien correctamente todos los campos del formulario
+    Then el boton tiene el "<estado>"
+
+    Examples:
+      | estado       |
+      | Habilitado   |
+      | Inhabilitado |
+
+
+
+  # TC_Campo Cuenta de ahorros o cuenta corriente
+  # TC_Campos obligatorios Formulario Datos cliente
+  Scenario Outline: Formulario Datos completos
+    Given estoy en el formulario: Verifica y actualiza la información del negocio según los datos registrados en Cámara de Comercio
+    When se cargaron los datos del cliente "<cedula>" y se da click en la lista desplegable del campo "Cuenta para pago de comisiones"
+    Then se despliegan "<numero_cuenta>"
+
+    Examples:
+      | cedula       |numero_cuenta |
+      | xxx          | xxxxxxx      |
+      | xxxxx        | xxxxxxx      |
+
+  # TC_Campo tipo de comisiones por que

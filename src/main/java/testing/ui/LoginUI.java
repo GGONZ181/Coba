@@ -62,7 +62,8 @@ public class LoginUI {
             ));
     public static final Target BTN_SALIDA_ACEPTAR = Target.the("boton Aceptar Salida Segura")
             .located(ByShadow.cssSelector(
-                     "button",             // Selector interno final
-                          "sp-ml-modal:nth-of-type(0)"  // Shadow nivel 1
+                    "#\\30", //"button:nth-of-type(1)",             // Selector interno final
+                      "sp-ml-modal:nth-of-type(1)"  // Shadow nivel 1
+                    //"(//sp-ml-modal)[1]"
             ));
 }
