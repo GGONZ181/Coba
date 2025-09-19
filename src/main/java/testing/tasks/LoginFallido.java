@@ -4,41 +4,31 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.waits.WaitUntil;
+import org.hamcrest.Matchers;
+import testing.questions.TextoQuestion;
 
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
-import static testing.ui.LoginUI.*;
+import static testing.ui.LoginPage.*;
 
-public class LoginCredenciales implements Task {
+public class LoginFallido implements Task {
     private final String usuario;
     private final String clave;
     //private final  boolean cerrarModal;
 
-
-    public LoginCredenciales(String usuario, String clave){
-    // public LoginCredenciales(String usuario, String clave,boolean cerrarModal) {
+    public LoginFallido(String usuario, String clave){
         this.usuario = usuario;
         this.clave = clave;
-       // this.cerrarModal = cerrarModal;
     }
 
-    public static LoginCredenciales correctas() {
-        return instrumented(LoginCredenciales.class, "iparada", "Bogota123*");
-    }
-
-    public static LoginCredenciales incorrectas(String usuario, String clave) {
-        return instrumented(LoginCredenciales.class, usuario, clave);
-    }
-/*
-            public static LoginCredenciales incorrectas(String usuario, String clave) {
-                return instrumented(LoginCredenciales.class, usuario, clave,true);
+    public static LoginFallido incorrecto(String usuario, String clave) {
+                return instrumented(LoginFallido.class, usuario, clave);
             }
 
-    public static LoginCredenciales conCredencialesYCierreDeModal(String usuario, String clave) {
-        return instrumented(LoginCredenciales.class, usuario, clave, true);
+    public static LoginExitoso conCredencialesYCierreDeModal(String usuario, String clave) {
+        return instrumented(LoginExitoso.class, usuario, clave );   //, true);
     }
-*/
+
     @Override
     public <T extends Actor> void performAs(T actor) {
         try {
@@ -48,6 +38,10 @@ public class LoginCredenciales implements Task {
                 Click.on(BTN_INGRESAR)
             );
             Thread.sleep(10000); // Espera 10 segundos
+
+            actor.should(seeThat(TextoQuestion.title(ERROR1), Matchers.equalTo(MNJ_ERROR1))
+
+            );
 
            /* actor.attemptsTo(
                 Click.on(BTN_SALIDA_SEGURA)

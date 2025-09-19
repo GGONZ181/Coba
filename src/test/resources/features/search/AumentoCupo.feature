@@ -125,7 +125,7 @@ Feature: Aumento de cupo al corresponsal bancario
     Examples:
       | numero_documento | codigo_oficina | motivo_rechazo                                        |
       | 98500501         | 0012           | "Los datos seguros del cliente no están actualizados" |
-    ***  | 13957639         | 0019           | "No puedes iniciar el proceso porque se realizó un aumento de cupo hace menos de 6 meses." |
+      | 13957639         | 0019           | "No puedes iniciar el proceso porque se realizó un aumento de cupo hace menos de 6 meses." |
       | 98400402         | 0021           | "El resultado del estudio es negativo porque el corresponsal tiene cuentas embargadas en el Banco de Bogotá" |
       | 20390847         | 0013           | "El resultado del estudio es negativo porque no cumples con las políticas internas del Banco de Bogotá." |
 

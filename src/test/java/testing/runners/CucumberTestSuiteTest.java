@@ -12,9 +12,9 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/search/Login.feature",
         //features = "src/test/resources/features/search/BandejaEntrada.feature",
         glue = "testing/stepdefinitions",
-        snippets = CucumberOptions.SnippetType.CAMELCASE,
-        tags = "@LoginExitoso"
-        //tags = "@SolicitudesEstados"
+        snippets = CucumberOptions.SnippetType.CAMELCASE
+        //tags = "@LoginExitoso"
+
 )
 public class CucumberTestSuiteTest {}
 

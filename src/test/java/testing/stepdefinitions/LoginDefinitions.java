@@ -1,49 +1,55 @@
 package testing.stepdefinitions;
 
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.hamcrest.Matchers;
 import testing.questions.TextoQuestion;
-import testing.tasks.LoginCredenciales;
+import testing.tasks.LoginExitoso;
+
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static testing.stepdefinitions.hooks.Hooks.ACTOR;
-import static testing.ui.LoginUI.*;
+import static testing.ui.LoginPage.*;
 
 public class LoginDefinitions {
-    // PRIMER FEATURE
+    // Primer escenario
     @When("el especialista digita su usuario y contraseña correcto")
     public void digitarCredenciales() {
-        ACTOR.attemptsTo(LoginCredenciales.correctas());
+        ACTOR.attemptsTo(LoginExitoso.correctas());
     }
 
     @Then("valida el texto de la pagina")
     public void verificaTexto() {
-        ACTOR.should(
-                seeThat(TextoQuestion.title(TITULO), Matchers.equalTo(MNJ_TITULO))
-        );
+        ACTOR.should(seeThat(TextoQuestion.title(TITULO), Matchers.equalTo(MNJ_TITULO)));
     }
 
-    //SEGUNDO FEATURE
-    @When("el especialista digita el usuario {string} y la contraseña {string}")
-    public void digitarCredenciales(String usuario, String clave) {
-        ACTOR.attemptsTo(
-                LoginCredenciales.incorrectas(usuario,clave)
-        );
+    //Segundo escenario @LoginIncorrecto1
+    @When("el especialista digita el {string} y la {string}")
+    public void elEspecialistaDigitaElYLa(String usuario, String contrasena) {
+        // Write code here that turns the phrase above into concrete actions
+        //throw new io.cucumber.java.PendingException();
     }
 
-    @Then("valida mensaje de error")
-    public void verificaMensajeError() {
-        ACTOR.should(
-                seeThat(TextoQuestion.title(ERROR1), Matchers.equalTo(MNJ_ERROR1))
-        );
+    @Then("valida mensaje de error intento uno")
+    public void validaMensajeDeErrorIntentoUno() {
+        // Write code here that turns the phrase above into concrete actions
+        //throw new io.cucumber.java.PendingException();
     }
+
 /*
-    //TERCER FEATURE
+    //TERCER FEATURE @LoginIncorrecto2
     @When("el especialista digita el usuario {string} y la contraseña {string} por segunda vez")
-    public void digitarCredenciales(String usuario, String clave, Boolean cerrarModal) {
-        ACTOR.attemptsTo(LoginCredenciales.incorrectas(usuario,clave,cerrarModal)),
-                ACTOR.attemptsTo(LoginCredenciales.conCredencialesYCierreDeModal(usuario,clave,cerrarModal)),
-                ACTOR.attemptsTo(LoginCredenciales.conCredencialesYCierreDeModal(usuario,clave,cerrarModal))
+    public void digitarCredencialesIncorrectasDos(String usuario, String clave) {
+        ACTOR.attemptsTo(LoginFallido.incorrecto(usuario,clave));
+    }
+
+    @Then("muestra mensaje: Te quedan 1 intentos de ingreso o se bloqueará el usuario")
+    public void verificaMensajeErrorDOS() {
+        ACTOR.should(seeThat(TextoQuestion.title(ERROR2), Matchers.equalTo(MNJ_ERROR2))
+        );
+    }
+    //CUARTO FEATURE @LoginIncorrecto2
+    @When("el especialista digita el usuario {string} y la contraseña {string} por segunda vez")
+    public void digitarCredencialesIncorrectasDOSDOS(String usuario, String clave) {
+        ACTOR.attemptsTo(LoginFallido.incorrecto(usuario,clave));
     }
 
     @Then("muestra mensaje: Te quedan 1 intentos de ingreso o se bloqueará el usuario")
@@ -52,6 +58,5 @@ public class LoginDefinitions {
                 seeThat(TextoQuestion.title(ERROR2), Matchers.equalTo(MNJ_ERROR2))
         );
     }
-
- */
+*/
 }

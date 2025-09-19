@@ -1,0 +1,32 @@
+package testing.tasks;
+
+public class LoginFallidoTercerIntento implements Task {
+    private String usuario;
+    private String clave;
+
+    public LoginFallidoTercerIntento(String usuario, String clave) {
+        this.usuario = usuario;
+        this.clave = clave;
+    }
+
+    public static LoginFallidoTercerIntento con(String usuario, String clave) {
+        return new LoginFallidoTercerIntento(usuario, clave);
+    }
+
+    @Override
+    public <T extends Actor> void performAs(T actor) {
+        actor.attemptsTo(
+                Enter.theValue(usuario).into(LoginPage.TXT_USUARIO),
+                Enter.theValue(clave).into(LoginPage.TXT_CLAVE),
+                Click.on(LoginPage.BTN_INGRESAR)
+        );
+
+        actor.should(
+                seeThat(WebElementQuestion.the(LoginPage.MENSAJE_ERROR_3),
+                        WebElementStateMatchers.isVisible())
+        );
+
+        actor.attemptsTo(Click.on(LoginPage.BTN_ACEPTAR_ERROR_3));
+    }
+}
+

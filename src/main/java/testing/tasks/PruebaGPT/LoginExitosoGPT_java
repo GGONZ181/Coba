@@ -1,0 +1,46 @@
+package testing.tasks;
+
+public class LoginExitosoGPT implements Task {
+        private String usuario;
+        private String clave;
+
+        public LoginExitosoCHATGPT(String usuario, String clave) {
+            this.usuario = usuario;
+            this.clave = clave;
+        }
+
+        public static LoginExitosoCHATGPT con(String usuario, String clave) {
+            return new LoginExitosoCHATGPT(usuario, clave);
+        }
+
+        @Override
+        public <T extends Actor> void performAs(T actor) {
+            actor.attemptsTo(
+                    Enter.theValue(usuario).into(LoginPage.TXT_USUARIO),
+                    Enter.theValue(clave).into(LoginPage.TXT_CLAVE),
+                    Click.on(LoginPage.BTN_INGRESAR)
+            );
+        }
+    }
+
+    /*  ¿Cómo se usan en los Step Definitions?
+@When("el especialista realiza un logueo exitoso")
+public void logueoExitoso() {
+    ACTOR.attemptsTo(LoginExitoso.con("usuarioValido", "claveValida"));
+}
+
+@When("el especialista falla el primer intento de logueo")
+public void primerIntentoFallido() {
+    ACTOR.attemptsTo(LoginFallidoPrimerIntento.con("usuario", "claveIncorrecta"));
+}
+
+@When("el especialista falla el segundo intento de logueo")
+public void segundoIntentoFallido() {
+    ACTOR.attemptsTo(LoginFallidoSegundoIntento.con("usuario", "claveIncorrecta"));
+}
+
+@When("el especialista falla el tercer intento y queda bloqueado")
+public void tercerIntentoFallido() {
+    ACTOR.attemptsTo(LoginFallidoTercerIntento.con("usuario", "claveIncorrecta"));
+}
+*/

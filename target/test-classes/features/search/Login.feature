@@ -1,4 +1,4 @@
-Feature: Autenticación de usuario en el sistema
+Feature: Autenticación de usuario en la pagina web COBA
 
 Background:
 	Given que el usuario se encuentra en la pagina de Login
@@ -11,33 +11,34 @@ Background:
 	#intento 1
 	@LoginIncorrecto1
 	Scenario Outline: Inicio de sesión con credenciales incorrectas primer intento
-	When el especialista digita el usuario "<usuario>" y la contraseña "<contraseña>"
-	Then valida mensaje de error
+	When el especialista digita el "usuario" y la "contrasena"
+	Then valida mensaje de error intento uno
  
 	Examples:
-	  | usuario         | contraseña     |
+	  | usuario         | clave     |
 	  | usuario_falso   | password123    |
  
 	  
 	#intento 2
 	@LoginIncorrecto2
 	Scenario Outline: Inicio de sesión con credenciales incorrectas segundo intento
-	When el especialista digita el usuario "<usuario>" y la contraseña "<contraseña>"
+	When el especialista digita el usuario "<usuario>" y la contraseña "<clave>"
 	 # por segunda vez
 	Then muestra mensaje Te quedan 1 intentos de ingreso o se bloqueará el usuario
+	And esta es pruebas
  
 	Examples:
-	  | usuario         | contraseña     |
+	  | usuario            | clave          |
 	  | usuario_falsodos   | password123    |
 	  
 
 	#intento 3
 	Scenario Outline: Inicio de sesión con credenciales incorrectas tercer intento
-	When el especialista digita el usuario "<usuario>" y la contraseña "<contraseña>"
+	When el especialista digita el usuario "<usuario>" y la contraseña "<clave>"
 	Then muestra mensaje "Excediste el número de intentos" 
  
 	Examples:
-	  | usuario         | contraseña     |
+	  | usuario         | clave     |
 	  | usuario_falso   | password123    |
 
 	#Sesion abierta 

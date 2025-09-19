@@ -3,7 +3,7 @@ package testing.ui;
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.webdriver.shadow.ByShadow;
 
-public class LoginUI {
+public class LoginPage {
 
     public static final Target TITULO = Target.the("titulo").
             locatedBy("//body//app-root//div[@class='title-home']//div//div[1]");
@@ -15,7 +15,6 @@ public class LoginUI {
                     "slot[name='content']",    // Selector interno final
                     "sp-ml-modal:nth-of-type(4)"     // Shadow host (cuarto en orden)
             ));
-
     public static final String MNJ_ERROR1 = "Te quedan 2 intentos de ingreso o se bloqueará el usuario.";
 
 
