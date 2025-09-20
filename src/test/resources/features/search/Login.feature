@@ -7,7 +7,7 @@ Background:
 	Scenario: Inicio de sesión Exitoso
 	When el especialista digita su usuario y contraseña correcto
 	Then valida el texto de la pagina
-		And esta es una prueba que quiero hacer
+
 
 	#intento 1
 	@LoginIncorrecto1

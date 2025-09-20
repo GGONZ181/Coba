@@ -4,10 +4,16 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+//import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+//import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+//import java.time.Duration;
+
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+//import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static testing.ui.LoginPage.*;
+
+
 
 public class LoginExitoso implements Task {
     private final String usuario;
@@ -30,13 +36,10 @@ public class LoginExitoso implements Task {
             actor.attemptsTo(
                 Enter.theValue(usuario).into(TXT_USUARIO),
                 Enter.theValue(clave).into(TXT_CLAVE),
-                Click.on(BTN_INGRESAR),
-
-                    Click.on(BTN_INGRESAR)
-
+                Click.on(BTN_INGRESAR)
+               //  WaitUntil.the(BOTON_ABRIR_AQUI, isVisible()).forNoMoreThan(Duration.ofSeconds(40)),
+               // ResolverSesionAbierta.siAparece()
             );
-            Thread.sleep(10000); // Espera 10 segundos
-            Thread.sleep(10000); // Espera 10 segundos
             Thread.sleep(10000); // Espera 10 segundos
 
         } catch (InterruptedException e) {

@@ -5,9 +5,53 @@ import net.thucydides.core.webdriver.shadow.ByShadow;
 
 public class LoginPage {
 
-    public static final Target TITULO = Target.the("titulo").
+    public static final Target TXT_USUARIO = Target.the("campo usuario")
+            .located(ByShadow.cssSelector(
+                    "input[placeholder='Ingresa el usuario']",        // Selector interno final
+                    "sp-ml-xcenter-login-form",                             // Shadow host nivel 1 el de mas afuera
+                    "sp-at-input[id-el='user']"        // Shadow host nivel 2
+            ));
+
+    public static final Target TXT_CLAVE = Target.the("campo clave")
+            .located(ByShadow.cssSelector(
+                    "input[placeholder='Ingresa la contraseña']",
+                    "sp-ml-xcenter-login-form",
+                    "sp-at-input[id-el='password']"
+            ));
+
+    public static final Target BTN_INGRESAR = Target.the("boton ingresar")
+            .located(ByShadow.cssSelector(
+                    "button",
+                    "sp-ml-xcenter-login-form"
+            ));
+
+    public static final String TXT_MNJ_SESION_ABIERTA = "Deseas ingresar al portal COBA desde esta ventana?";
+
+    /// //
+    ///  encuentra el shadow
+   // public static final Target ECT_SHADOW = Target.the("boton ingresar")
+     //       .locatedBy("//*[@id='bodyd']/app-root/pqrpn-login/sp-ml-modal[5]");
+
+    ///
+
+
+
+    public static final Target MENSAJE_SESION_ABIERTA = Target.the("mensaje de sesión abierta")
+                .located(ByShadow.cssSelector(
+                        "//*[@id='modal']/div/div[2]",        // Selector interno final
+                        "//*[@id='bodyd']/app-root/pqrpn-login/sp-ml-modal[5]"               // Shadow host nivel 1
+                        // Deseas ingresar al portal COBA desde esta ventana?
+                ));
+
+    public static final Target BOTON_ABRIR_AQUI = Target.the("Abrir aqui")
+            .located(ByShadow.cssSelector(
+                    "//*[@id='modal']/div/div[2]",        // Selector interno final
+                    "//*[@id='bodyd']/app-root/pqrpn-login/sp-ml-modal[5]"               // Shadow host nivel 1 mas externo
+            ));
+
+    public static final Target TITULO_HOME = Target.the("titulo").
             locatedBy("//body//app-root//div[@class='title-home']//div//div[1]");
-    public static final String MNJ_TITULO = "Puedes observar el estado de las solicitudes realizadas en los últimos 3 meses";
+    public static final String MNJ_TITULO_HOME = "Puedes observar el estado de las solicitudes realizadas en los últimos 3 meses";
 
 
     public static final Target ERROR1 = Target.the("Mensaje error")
@@ -34,25 +78,7 @@ public class LoginPage {
 
 
 
-    public static final Target TXT_USUARIO = Target.the("campo usuario")
-            .located(ByShadow.cssSelector(
-                "input[placeholder='Ingresa el usuario']",        // Selector interno final
-                "sp-ml-xcenter-login-form",                             // Shadow host nivel 1
-                    "sp-at-input[id-el='user']"        // Shadow host nivel 2
-            ));
 
-    public static final Target TXT_CLAVE = Target.the("campo clave")
-            .located(ByShadow.cssSelector(
-                    "input[placeholder='Ingresa la contraseña']",
-                    "sp-ml-xcenter-login-form",
-                    "sp-at-input[id-el='password']"
-            ));
-
-    public static final Target BTN_INGRESAR = Target.the("boton ingresar")
-            .located(ByShadow.cssSelector(
-                    "button",
-                    "sp-ml-xcenter-login-form"
-            ));
 
     public static final Target BTN_SALIDA_SEGURA = Target.the("boton Salida Segura")
             .located(ByShadow.cssSelector(
@@ -65,4 +91,5 @@ public class LoginPage {
                       "sp-ml-modal:nth-of-type(1)"  // Shadow nivel 1
                     //"(//sp-ml-modal)[1]"
             ));
+
 }

@@ -17,8 +17,10 @@ public class LoginDefinitions {
     }
 
     @Then("valida el texto de la pagina")
-    public void verificaTexto() {
-        ACTOR.should(seeThat(TextoQuestion.title(TITULO), Matchers.equalTo(MNJ_TITULO)));
+    // este es el mensaje de cuando ya entra al home
+    public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(TITULO_HOME), Matchers.equalTo(MNJ_TITULO_HOME)));
+    // este es el de comparar el texto cuando ya tiene sesion abierta, pero no encuentra los elementos:
+    // public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(MENSAJE_SESION_ABIERTA), Matchers.equalTo(TXT_MNJ_SESION_ABIERTA)));
     }
 
     //Segundo escenario @LoginIncorrecto1
