@@ -1,1 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Filtros de Bandeja de Entrada" skipped="8" tests="8" time="67.36" timestamp="2025-07-24 06:33:20"><testcase name="Filtro de solicitudes por todos los estados"><skipped/></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="Filtros de Bandeja de Entrada" skipped="0" tests="1" time="4.54" timestamp="2025-10-10 06:08:43"><testcase name="Filtro de solicitudes por todos los estados"><error type="java.lang.NullPointerException"/><system-err>null&#13;
+com.google.common.base.Preconditions.checkNotNull(Preconditions.java:904)&#13;
+testing.stepdefinitions.LoginDefinitions.digitarCredenciales(LoginDefinitions.java:18)&#13;
+✽.el especialista digita su "iparada" y "Bogota123*" correcto(file:///D:/Automatizacion2025/Coba/src/test/resources/features/search/BandejaEntrada.feature:4)&#13;
+</system-err></testcase></testsuite>

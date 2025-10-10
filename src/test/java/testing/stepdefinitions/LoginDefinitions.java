@@ -1,6 +1,7 @@
 package testing.stepdefinitions;
 
 import io.cucumber.java.en.*;
+import net.serenitybdd.screenplay.actors.OnStage;
 import org.hamcrest.Matchers;
 import testing.questions.TextoQuestion;
 import testing.tasks.LoginExitoso;
@@ -11,16 +12,30 @@ import static testing.ui.LoginPage.*;
 
 public class LoginDefinitions {
     // Primer escenario
-    @When("el especialista digita su usuario y contraseña correcto")
-    public void digitarCredenciales() {
-        ACTOR.attemptsTo(LoginExitoso.correctas());
+
+    @When("el especialista digita su {string} y {string} correcto")
+    public void digitarCredenciales(String usuario, String clave) {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                LoginExitoso.correctas(usuario, clave));
+
+
+
+
+
+/*
+    @When("el especialista digita su {string} y {string} correcto")
+    public void digitarCredenciales(String usuario, String clave) {
+        OnStage.withCurrentActor(LoginExitoso.correctas(usuario, clave));
+
+ */
+
     }
 
     @Then("valida el texto de la pagina")
     // este es el mensaje de cuando ya entra al home
     public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(TITULO_HOME), Matchers.equalTo(MNJ_TITULO_HOME)));
     // este es el de comparar el texto cuando ya tiene sesion abierta, pero no encuentra los elementos:
-    // public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(MENSAJE_SESION_ABIERTA), Matchers.equalTo(TXT_MNJ_SESION_ABIERTA)));
+     //public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(MENSAJE_SESION_ABIERTA), Matchers.equalTo(TXT_MNJ_SESION_ABIERTA)));
     }
 
     //Segundo escenario @LoginIncorrecto1

@@ -5,14 +5,15 @@ Background:
 
 	@LoginExitoso
 	Scenario: Inicio de sesión Exitoso
-	When el especialista digita su usuario y contraseña correcto
+	#When el especialista digita su usuario y contraseña correcto
+	When el especialista digita su "iparada" y "Bogota123*" correcto
 	Then valida el texto de la pagina
 
 
 	#intento 1
 	@LoginIncorrecto1
 	Scenario Outline: Inicio de sesión con credenciales incorrectas primer intento
-	When el especialista digita el "usuario" y la "contrasena"
+	When el especialista digita el "<usuario>" y la "<clave>"
 	Then valida mensaje de error intento uno
 
 	Examples:

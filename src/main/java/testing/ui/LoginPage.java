@@ -11,7 +11,17 @@ public class LoginPage {
                     "sp-ml-xcenter-login-form",                             // Shadow host nivel 1 el de mas afuera
                     "sp-at-input[id-el='user']"        // Shadow host nivel 2
             ));
-
+///
+public static final Target BOTON_ABRIR_AQUI = Target.the("Abrir aqui")
+         .located(ByShadow.cssSelector(      //    "#\\31 "));
+        //.located(ByShadow.cssSelector(
+                //"#/31",
+                 "//div[@class='sp-at-btn sp-at-btn--primary sp-at-btn--lg']",        // Selector interno final
+                //"sp-ml-modal[title-modal='Deseas ingresar al portal COBA desde esta ventana?']"
+                "sp-ml-modal:nth-of-type(5)"               // Shadow host nivel 1 mas externo
+                //"sp-ml-modal[title-modal='Deseas ingresar al portal COBA desde esta ventana?']"               // Shadow host nivel 1 mas externo
+         ));
+///
     public static final Target TXT_CLAVE = Target.the("campo clave")
             .located(ByShadow.cssSelector(
                     "input[placeholder='Ingresa la contraseña']",
@@ -34,21 +44,20 @@ public class LoginPage {
 
     ///
 
-
-
     public static final Target MENSAJE_SESION_ABIERTA = Target.the("mensaje de sesión abierta")
                 .located(ByShadow.cssSelector(
-                        "//*[@id='modal']/div/div[2]",        // Selector interno final
-                        "//*[@id='bodyd']/app-root/pqrpn-login/sp-ml-modal[5]"               // Shadow host nivel 1
+                        "//div[@class='sp-ml-modal__content__box__title']",        // Selector interno final
+                        "sp-ml-modal[5]"    //"//*[@id='bodyd']/app-root/pqrpn-login/sp-ml-modal[5]"    // Shadow host nivel 1
                         // Deseas ingresar al portal COBA desde esta ventana?
                 ));
-
+/*
     public static final Target BOTON_ABRIR_AQUI = Target.the("Abrir aqui")
+           // .located(ByShadow.cssSelector("#\\31 "));
             .located(ByShadow.cssSelector(
-                    "//*[@id='modal']/div/div[2]",        // Selector interno final
-                    "//*[@id='bodyd']/app-root/pqrpn-login/sp-ml-modal[5]"               // Shadow host nivel 1 mas externo
+                    "//*[@id='1']",        // Selector interno final
+                    "sp-ml-modal[5]"               // Shadow host nivel 1 mas externo
             ));
-
+*/
     public static final Target TITULO_HOME = Target.the("titulo").
             locatedBy("//body//app-root//div[@class='title-home']//div//div[1]");
     public static final String MNJ_TITULO_HOME = "Puedes observar el estado de las solicitudes realizadas en los últimos 3 meses";
@@ -77,19 +86,5 @@ public class LoginPage {
             ));
 
 
-
-
-
-    public static final Target BTN_SALIDA_SEGURA = Target.the("boton Salida Segura")
-            .located(ByShadow.cssSelector(
-                    "button",
-                    "sp-ml-header"
-            ));
-    public static final Target BTN_SALIDA_ACEPTAR = Target.the("boton Aceptar Salida Segura")
-            .located(ByShadow.cssSelector(
-                    "#\\30", //"button:nth-of-type(1)",             // Selector interno final
-                      "sp-ml-modal:nth-of-type(1)"  // Shadow nivel 1
-                    //"(//sp-ml-modal)[1]"
-            ));
 
 }
