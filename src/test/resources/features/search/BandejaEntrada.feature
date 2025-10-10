@@ -1,6 +1,7 @@
 Feature: Filtros de Bandeja de Entrada
     Background:
         Given que el usuario se encuentra en la pagina de Login
+        #When el especialista digita su usuario y contraseña correcto
         When el especialista digita su "iparada" y "Bogota123*" correcto
         Then valida el texto de la pagina
 #    Background:

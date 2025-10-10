@@ -31,6 +31,13 @@ public class LoginExitoso implements Task {
 
     }
 
+    /* COMO LO TENIA ANTES
+        public static LoginExitoso correctas() {
+        return instrumented(LoginExitoso.class, "iparada", "Bogota123*");
+    }
+
+
+     */
     @Override
     public <T extends Actor> void performAs(T actor) {
         try {

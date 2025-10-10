@@ -29,6 +29,22 @@ public class LoginDefinitions {
 
  */
 
+        /*
+        LA FORMA INICIAL COMO LO TENIA
+            @When("el especialista digita su usuario y contraseña correcto")
+    public void digitarCredenciales() {
+        ACTOR.attemptsTo(LoginExitoso.correctas());
+    }
+
+    @Then("valida el texto de la pagina")
+    // este es el mensaje de cuando ya entra al home
+    public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(TITULO_HOME), Matchers.equalTo(MNJ_TITULO_HOME)));
+    // este es el de comparar el texto cuando ya tiene sesion abierta, pero no encuentra los elementos:
+    // public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(MENSAJE_SESION_ABIERTA), Matchers.equalTo(TXT_MNJ_SESION_ABIERTA)));
+    }
+
+         */
+
     }
 
     @Then("valida el texto de la pagina")
