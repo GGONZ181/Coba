@@ -7,7 +7,6 @@ import testing.questions.TextoQuestion;
 import testing.tasks.LoginExitoso;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static testing.stepdefinitions.hooks.Hooks.ACTOR;
 import static testing.ui.LoginPage.*;
 
 public class LoginDefinitions {
@@ -15,8 +14,10 @@ public class LoginDefinitions {
 
     @When("el especialista digita su {string} y {string} correcto")
     public void digitarCredenciales(String usuario, String clave) {
+        System.out.println(">>> Ejecutando login con usuario: " + usuario);
         OnStage.theActorInTheSpotlight().attemptsTo(
                 LoginExitoso.correctas(usuario, clave));
+
 
 
 
@@ -49,7 +50,10 @@ public class LoginDefinitions {
 
     @Then("valida el texto de la pagina")
     // este es el mensaje de cuando ya entra al home
-    public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(TITULO_HOME), Matchers.equalTo(MNJ_TITULO_HOME)));
+    public void verificaTexto() {
+        OnStage.theActorInTheSpotlight().should(
+                seeThat(TextoQuestion.title(TITULO_HOME), Matchers.equalTo(MNJ_TITULO_HOME))
+        );
     // este es el de comparar el texto cuando ya tiene sesion abierta, pero no encuentra los elementos:
      //public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(MENSAJE_SESION_ABIERTA), Matchers.equalTo(TXT_MNJ_SESION_ABIERTA)));
     }

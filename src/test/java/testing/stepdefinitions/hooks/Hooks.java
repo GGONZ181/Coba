@@ -13,16 +13,17 @@ import org.openqa.selenium.WebDriver;
 public class Hooks {
 
     private WebDriver driver = Serenity.getDriver();
-    public static final Actor ACTOR = Actor.named("Pepito");
+    //public static final Actor ACTOR = Actor.named("Pepito");
 
     @Before
     public void setUp(Scenario scenario) {
-        OnStage.setTheStage(
-                new OnlineCast()
-        );
-        ACTOR.whoCan(
-                BrowseTheWeb.with(driver)
-        );
+        OnStage.setTheStage(new OnlineCast());
+        OnStage.theActorCalled("Pepito").can(BrowseTheWeb.with(driver));
+
+
+        //);
+        //ACTOR.whoCan(BrowseTheWeb.with(driver)
+       // );
     }
 
     @After
