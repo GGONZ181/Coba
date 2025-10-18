@@ -19,11 +19,6 @@ public class Hooks {
     public void setUp(Scenario scenario) {
         OnStage.setTheStage(new OnlineCast());
         OnStage.theActorCalled("Pepito").can(BrowseTheWeb.with(driver));
-
-
-        //);
-        //ACTOR.whoCan(BrowseTheWeb.with(driver)
-       // );
     }
 
     @After

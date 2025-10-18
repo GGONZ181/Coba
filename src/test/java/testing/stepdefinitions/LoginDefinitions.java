@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import org.hamcrest.Matchers;
 import testing.questions.TextoQuestion;
 import testing.tasks.LoginExitoso;
+import testing.tasks.SalidaSegura;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static testing.ui.LoginPage.*;
@@ -14,38 +15,9 @@ public class LoginDefinitions {
 
     @When("el especialista digita su {string} y {string} correcto")
     public void digitarCredenciales(String usuario, String clave) {
-        System.out.println(">>> Ejecutando login con usuario: " + usuario);
+        //System.out.println(">>> Ejecutando login con usuario: " + usuario);
         OnStage.theActorInTheSpotlight().attemptsTo(
                 LoginExitoso.correctas(usuario, clave));
-
-
-
-
-
-
-/*
-    @When("el especialista digita su {string} y {string} correcto")
-    public void digitarCredenciales(String usuario, String clave) {
-        OnStage.withCurrentActor(LoginExitoso.correctas(usuario, clave));
-
- */
-
-        /*
-        LA FORMA INICIAL COMO LO TENIA
-            @When("el especialista digita su usuario y contraseña correcto")
-    public void digitarCredenciales() {
-        ACTOR.attemptsTo(LoginExitoso.correctas());
-    }
-
-    @Then("valida el texto de la pagina")
-    // este es el mensaje de cuando ya entra al home
-    public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(TITULO_HOME), Matchers.equalTo(MNJ_TITULO_HOME)));
-    // este es el de comparar el texto cuando ya tiene sesion abierta, pero no encuentra los elementos:
-    // public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(MENSAJE_SESION_ABIERTA), Matchers.equalTo(TXT_MNJ_SESION_ABIERTA)));
-    }
-
-         */
-
     }
 
     @Then("valida el texto de la pagina")
@@ -54,22 +26,22 @@ public class LoginDefinitions {
         OnStage.theActorInTheSpotlight().should(
                 seeThat(TextoQuestion.title(TITULO_HOME), Matchers.equalTo(MNJ_TITULO_HOME))
         );
-    // este es el de comparar el texto cuando ya tiene sesion abierta, pero no encuentra los elementos:
-     //public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(MENSAJE_SESION_ABIERTA), Matchers.equalTo(TXT_MNJ_SESION_ABIERTA)));
+
+        // Ejecuta la tarea de salida segura después de validar el título
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                SalidaSegura.salir()
+        );
+
     }
 
     //Segundo escenario @LoginIncorrecto1
     @When("el especialista digita el {string} y la {string}")
     public void elEspecialistaDigitaElYLa(String usuario, String contrasena) {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
     }
 
     @Then("valida mensaje de error intento uno")
     public void validaMensajeDeErrorIntentoUno() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
-    }
+   }
 
 /*
     //TERCER FEATURE @LoginIncorrecto2

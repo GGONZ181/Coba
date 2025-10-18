@@ -11,7 +11,7 @@ import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 import static testing.ui.BandejaEntradaPage.*;
 import static testing.ui.LoginPage.*;
-import static testing.ui.LoginPage.BOTON_ABRIR_AQUI;
+import static testing.ui.LoginPage.BOTON_INICIAR_AQUI;
 import static testing.ui.BandejaEntradaPage.BTN_SALIDA_SEGURA;
 
 public class FiltrosBandejaEntrada  implements Task {

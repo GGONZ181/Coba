@@ -11,17 +11,7 @@ public class LoginPage {
                     "sp-ml-xcenter-login-form",                             // Shadow host nivel 1 el de mas afuera
                     "sp-at-input[id-el='user']"        // Shadow host nivel 2
             ));
-///
-public static final Target BOTON_ABRIR_AQUI = Target.the("Abrir aqui")
-         .located(ByShadow.cssSelector(      //    "#\\31 "));
-        //.located(ByShadow.cssSelector(
-                //"#/31",
-                 "//div[@class='sp-at-btn sp-at-btn--primary sp-at-btn--lg']",        // Selector interno final
-                //"sp-ml-modal[title-modal='Deseas ingresar al portal COBA desde esta ventana?']"
-                "sp-ml-modal:nth-of-type(5)"               // Shadow host nivel 1 mas externo
-                //"sp-ml-modal[title-modal='Deseas ingresar al portal COBA desde esta ventana?']"               // Shadow host nivel 1 mas externo
-         ));
-///
+
     public static final Target TXT_CLAVE = Target.the("campo clave")
             .located(ByShadow.cssSelector(
                     "input[placeholder='Ingresa la contraseña']",
@@ -35,29 +25,47 @@ public static final Target BOTON_ABRIR_AQUI = Target.the("Abrir aqui")
                     "sp-ml-xcenter-login-form"
             ));
 
-    public static final String TXT_MNJ_SESION_ABIERTA = "Deseas ingresar al portal COBA desde esta ventana?";
+    public static final Target MODAL_SESION_ACTIVA = Target.the("modal de sesión activa")// Deseas ingresar al portal COBA desde esta ventana?
+            .located(ByShadow.cssSelector (
+                    ".sp-ml-modal__content__box__sub-title", // selector interno por clase
+                    "sp-ml-modal:nth-of-type(5)" // shadow host
+                    ));
 
-    /// //
-    ///  encuentra el shadow
-   // public static final Target ECT_SHADOW = Target.the("boton ingresar")
-     //       .locatedBy("//*[@id='bodyd']/app-root/pqrpn-login/sp-ml-modal[5]");
 
-    ///
+    //public static final String TXT_MNJ_SESION_ABIERTA = "Deseas ingresar al portal COBA desde esta ventana?";
 
+
+    public static final Target BOTON_INICIAR_AQUI = Target.the("botón iniciar sesión aquí")
+            .located(ByShadow.cssSelector(
+                    //"button#1",
+                    //"button\\31",
+                    //"sp-ml-modal:nth-of-type(5)",
+                    ".sp-ml-modal__content__box__options__btn-right",
+                    "sp-ml-modal:nth-of-type(5)" // shadow host
+                     ));
+
+    public static final Target BOTON_REGRESAR = Target.the("botón regresar y no iniciar sesión ")
+            .located(ByShadow.cssSelector(
+                    "button.sp-ml-modal__content__box__options__btn-left",
+                    //"button#0",  //
+                     "button\\30",
+                    "sp-ml-modal:nth-of-type(5)" // shadow host
+            ));
+
+// este que sigue es como repetido del modal sesion abierta:
     public static final Target MENSAJE_SESION_ABIERTA = Target.the("mensaje de sesión abierta")
                 .located(ByShadow.cssSelector(
-                        "//div[@class='sp-ml-modal__content__box__title']",        // Selector interno final
-                        "sp-ml-modal[5]"    //"//*[@id='bodyd']/app-root/pqrpn-login/sp-ml-modal[5]"    // Shadow host nivel 1
-                        // Deseas ingresar al portal COBA desde esta ventana?
+                        "slot[name='content']",
+                        //".sp-ml-modal__content__box__sub-title",
+                        //".sp-ml-modal__content__box__title",
+                        "sp-ml-modal:nth-of-type(5)"
                 ));
-/*
-    public static final Target BOTON_ABRIR_AQUI = Target.the("Abrir aqui")
-           // .located(ByShadow.cssSelector("#\\31 "));
-            .located(ByShadow.cssSelector(
-                    "//*[@id='1']",        // Selector interno final
-                    "sp-ml-modal[5]"               // Shadow host nivel 1 mas externo
-            ));
-*/
+
+
+
+
+
+
     public static final Target TITULO_HOME = Target.the("titulo").
             locatedBy("//body//app-root//div[@class='title-home']//div//div[1]");
     public static final String MNJ_TITULO_HOME = "Puedes observar el estado de las solicitudes realizadas en los últimos 3 meses";
@@ -84,7 +92,6 @@ public static final Target BOTON_ABRIR_AQUI = Target.the("Abrir aqui")
                     "button", //#\\30 [normalize-space()='Entendido']",               // Selector interno final
                     "sp-ml-modal:nth-of-type(4)"  // Shadow host (cuarto en orden)
             ));
-
 
 
 }
