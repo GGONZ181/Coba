@@ -2,7 +2,6 @@ package testing.tasks;
 
 import net.serenitybdd.screenplay.conditions.Check;
 import testing.ui.LoginPage;
-
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
@@ -23,7 +22,6 @@ public class ResolverSesionAbierta implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-
         System.out.println(">>> Entro a clase ResolverSesionAbierta");
         actor.attemptsTo(
                 WaitUntil.the(MODAL_SESION_ACTIVA, isVisible()).forNoMoreThan(5).seconds(),
@@ -34,7 +32,7 @@ public class ResolverSesionAbierta implements Task {
                         )
         );
 
-        System.out.println(">>> entro a resolver sesion abierta");
+        System.out.println(">>> entro a resolver sesion abierta, sigue un if");
         if (LoginPage.BOTON_INGRESAR_AQUI.resolveFor(actor).isPresent()) {
             System.out.println(">>> si encuentra el boton paso por aqui");
             actor.attemptsTo(
