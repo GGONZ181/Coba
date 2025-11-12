@@ -3,15 +3,16 @@ package testing.tasks;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.waits.WaitUntil;
+import testing.ui.BandejaEntradaPage;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 import static testing.ui.BandejaEntradaPage.*;
 import static testing.ui.LoginPage.*;
-import static testing.ui.LoginPage.BOTON_INGRESAR_AQUI;
 
-import static testing.ui.BandejaEntradaPage.BTN_SALIDA_SEGURA;
+//import static testing.ui.BandejaEntradaPage.BTN_SALIDA_SEGURA;
 
 public class FiltrosBandejaEntrada  implements Task {
 
@@ -28,15 +29,32 @@ public class FiltrosBandejaEntrada  implements Task {
 
     }
 
-
-    public static FiltrosBandejaEntrada Filtrodesolicitudesportodoslosestados() {
-        return instrumented(FiltrosBandejaEntrada.class, "Todas", "Todas","Vacio");
+    public static FiltrosBandejaEntrada Filtrodesolicitudesportodoslosestados(String identificacion, String tipo_solicitud, String numero) {
+        return instrumented(FiltrosBandejaEntrada.class, identificacion, tipo_solicitud,numero);
     }
     @Override
     public <T extends Actor> void performAs(T actor) {
         try {
             actor.attemptsTo(
-                    Click.on( BTN_SALIDA_SEGURA)
+                    WaitUntil.the(BandejaEntradaPage.CLIC_FILTRO_ESTADO, isClickable()).forNoMoreThan(20).seconds(),
+                    Click.on( CLIC_FILTRO_ESTADO),
+                    Click.on(OPCION_ESTADO_RECHAZADO),
+                    Click.on(CLIC_FILTRO_IDENTIFICACION),
+                    Click.on(OPCION_IDENTIFICACION_TODAS),
+                    Click.on(CLIC_FILTRO_IDENTIFICACION),
+                    Click.on(OPCION_IDENTIFICACION_CEDULA),
+                    Click.on(CLIC_FILTRO_IDENTIFICACION),
+                    Click.on(OPCION_IDENTIFICACION_CEDULAEXT),
+                    Click.on(CLIC_FILTRO_IDENTIFICACION),
+                    Click.on(OPCION_IDENTIFICACION_NIT_PN)
+
+                    /// ///////////////
+
+                    // FALTA EL FITLRO DE TIPO SOLICITUD Y PRESIONAR EL BOTON FILTRO
+
+                    /// ///////////////
+
+
                     //WaitUntil.the(LoginPage.BOTON_ABRIR_AQUI, isClickable()).forNoMoreThan(20).seconds(),
 
                     //Click.on(BOTON_ABRIR_AQUI)
@@ -46,7 +64,7 @@ public class FiltrosBandejaEntrada  implements Task {
                     //  WaitUntil.the(HomePage.HOME_INDICATOR, isVisible()).forNoMoreThan(30).seconds()
 
             );
-            System.out.println(">>> presiono ingresar");
+            System.out.println(">>> consultó segun filtros");
             Thread.sleep(10000); // Espera 10 segundos
 
         } catch (InterruptedException e) {

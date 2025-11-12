@@ -60,6 +60,7 @@ public class LoginExitoso implements Task {
                                 .forNoMoreThan(Duration.ofSeconds(10)),
                         Click.on(LoginPage.BOTON_INGRESAR_AQUI)
                 );
+                System.out.println(">>> si encuentra el boton de sesion Ya abierta paso por aqui y va saliendo");
             }
 
             actor.attemptsTo(

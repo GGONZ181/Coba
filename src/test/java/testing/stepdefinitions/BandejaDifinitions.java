@@ -16,15 +16,8 @@ public class BandejaDifinitions {
 
     @When("se selecciona el estado Todas con filtro {string}, filtro {string} y filtro {string} luego se oprime el boton filtrar")
      public void Filtrodesolicitudesportodoslosestados(String identificacion, String tipo_solicitud, String numero) {
-        OnStage.theActorInTheSpotlight().attemptsTo(FiltrosBandejaEntrada.Filtrodesolicitudesportodoslosestados());
-
-/*
-    @When("el especialista digita su {string} y {string} correcto")
-    public void digitarCredenciales(String usuario, String clave) {
-        OnStage.withCurrentActor(LoginExitoso.correctas(usuario, clave));
-
- */
-
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                FiltrosBandejaEntrada.Filtrodesolicitudesportodoslosestados(identificacion, tipo_solicitud, numero));
     }
 
     @Then("debe mostrar los datos que cumplen con los filtros seleccionados")
