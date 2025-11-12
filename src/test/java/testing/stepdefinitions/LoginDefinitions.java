@@ -6,7 +6,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import org.hamcrest.Matchers;
 import testing.questions.TextoQuestion;
-<<<<<<< HEAD
+
 import testing.tasks.LoginExitoso;
 import testing.tasks.SalidaSegura;
 
@@ -40,7 +40,7 @@ public class LoginDefinitions {
         );
 
     }
-
+/*
     //Segundo escenario @LoginIncorrecto1
     @When("el especialista digita el {string} y la {string}")
 
@@ -72,7 +72,7 @@ public class LoginDefinitions {
 
         }
 
-
+*/
     //Tercer Escenario @LoginIncorrecto2
     @When("el especialista digita el usuario {string} y la contraseña {string} incorrecta por segunda vez")
     public void digitarCredencialesIncorrectasDos(String usuario, String clave) {

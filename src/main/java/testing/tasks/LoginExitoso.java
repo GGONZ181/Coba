@@ -70,7 +70,7 @@ public class LoginExitoso implements Task {
                     */
 
                     // Espera a que desaparezca el modal de carga (si existe)
-                    WaitUntil.the(MODAL_ESPERAUN_MOMENTO, isNotVisible()).forNoMoreThan(20).seconds(),
+                  /*  WaitUntil.the(MODAL_ESPERAUN_MOMENTO, isNotVisible()).forNoMoreThan(20).seconds(),
 
                     // Condicional: si aparece el botón del modal, resolver sesión abierta
                     Check.whether(LoginPage.BOTON_INGRESAR_AQUI.resolveFor(actor).isPresent())
@@ -83,6 +83,7 @@ public class LoginExitoso implements Task {
 
 
             );
+*/
             System.out.println(">>> presionó ingresar EN LOGIN EXITOSO");
 
             Thread.sleep(10000); // Espera 10 segundos

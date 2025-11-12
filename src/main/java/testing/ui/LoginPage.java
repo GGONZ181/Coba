@@ -14,9 +14,6 @@ public class LoginPage {
 
 
     public static final Target TXT_CLAVE = Target.the("campo clave")
-
-   public static final Target TXT_CLAVE = Target.the("campo clave")
-
             .located(ByShadow.cssSelector(
                     "input[placeholder='Ingresa la contraseña']",
                     "sp-ml-xcenter-login-form",
