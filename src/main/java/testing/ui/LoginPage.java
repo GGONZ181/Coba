@@ -5,73 +5,66 @@ import net.thucydides.core.webdriver.shadow.ByShadow;
 
 public class LoginPage {
 
-    public static final Target TXT_USUARIO = Target.the("campo usuario")
+    public static final Target TXT_USUARIO = Target.the("Campo usuario")
             .located(ByShadow.cssSelector(
                     "input[placeholder='Ingresa el usuario']",        // Selector interno final
                     "sp-ml-xcenter-login-form",                             // Shadow host nivel 1 el de mas afuera, el que contiene al otro shadow
                     "sp-at-input[id-el='user']"        // Shadow host nivel 2
             ));
 
-
-    public static final Target TXT_CLAVE = Target.the("campo clave")
+    public static final Target TXT_CLAVE = Target.the("Campo clave")
             .located(ByShadow.cssSelector(
                     "input[placeholder='Ingresa la contraseña']",
                     "sp-ml-xcenter-login-form",
                     "sp-at-input[id-el='password']"
             ));
 
-    public static final Target BTN_INGRESAR = Target.the("boton ingresar")
+    public static final Target BTN_INGRESAR = Target.the("Boton ingresar")
             .located(ByShadow.cssSelector(
                     "button",
                     "sp-ml-xcenter-login-form"
             ));
 
+    public static final Target MODAL_ESPERAUN_MOMENTO = Target.the("Espera un momento, por favor") // Puntos de colores que giran
+            .locatedBy("//*[@id='bodyd']/app-root/pqrpn-login/sp-ml-loader");
 
-    public static final Target MODAL_SESION_ACTIVA = Target.the("modal de sesión activa")// Deseas ingresar al portal COBA desde esta ventana?
+    public static final Target MODAL_SESION_ACTIVA = Target.the("Modal de sesión activa")// Deseas ingresar al portal COBA desde esta ventana?
             .located(ByShadow.cssSelector (
                     ".sp-ml-modal__content__box__sub-title", // selector interno por clase
                     "sp-ml-modal:nth-of-type(5)" // shadow host
-                    ));
-
+            ));
 
     //public static final String TXT_MNJ_SESION_ABIERTA = "Deseas ingresar al portal COBA desde esta ventana?";
-
-    public static final Target MODAL_ESPERAUN_MOMENTO = Target.the("Espera un momento, por favor")
-            .locatedBy("//*[@id='bodyd']/app-root/pqrpn-login/sp-ml-loader");
-
-
-
-    public static final Target BOTON_INICIAR_AQUI = Target.the("botón iniciar sesión aquí")
+/*
+    public static final Target BOTON_INICIAR_AQUI = Target.the("Botón iniciar sesión aquí")
             .located(ByShadow.cssSelector(
                     //"button#1",
                     //"button\\31",
                     //"sp-ml-modal:nth-of-type(5)",
                     ".sp-ml-modal__content__box__options__btn-right",
                     "sp-ml-modal:nth-of-type(5)" // shadow host
-                     ));
-
+            ));
+ */
+/*
     public static final Target BOTON_REGRESAR = Target.the("botón regresar y no iniciar sesión ")
             .located(ByShadow.cssSelector(
                     "button.sp-ml-modal__content__box__options__btn-left",
                     //"button#0",  //
-                     "button\\30",
+                    "button\\30",
                     "sp-ml-modal:nth-of-type(5)" // shadow host
             ));
+*/
 
-// este que sigue es como repetido del modal sesion abierta:
+    // este que sigue es como repetido del modal sesion abierta:
     public static final Target MENSAJE_SESION_ABIERTA = Target.the("mensaje de sesión abierta")
-                .located(ByShadow.cssSelector(
-                        "slot[name='content']",
-                        //".sp-ml-modal__content__box__sub-title",
-                        //".sp-ml-modal__content__box__title",
-                        "sp-ml-modal:nth-of-type(5)"
-                ));
+            .located(ByShadow.cssSelector(
+                    "slot[name='content']",
+                    //".sp-ml-modal__content__box__sub-title",
+                    //".sp-ml-modal__content__box__title",
+                    "sp-ml-modal:nth-of-type(5)"
+            ));
 
-
-
-
-
-
+// repetido con BOTON_INICIAR_AQUI ??
     public static final Target BOTON_INGRESAR_AQUI = Target.the("Abrir aqui")
             .located(ByShadow.cssSelector(
                             //"#//31 ",
@@ -100,13 +93,13 @@ public class LoginPage {
             .located(ByShadow.cssSelector(
                     "#\\30 ",    // elemento: Boton: Entendido
                     "#bodyd > app-root > pqrpn-login > sp-ml-modal:nth-child(7)"));  // Shadow
-///
+    ///
 // este que sigue es el mismo mensaje y mismo localizador del intento 1, se puede borrar creo.
     public static final Target TITULO_USUARIO_CLAVE_INCORRECTO2 = Target.the("Mensaje error: Usuario o contraseña incorrecta")
             .located(ByShadow.cssSelector(
                     "#modal > div > div.sp-ml-modal__content__box__title",    // elemento : Texto: Usuario o contraseña incorrecta
                     "#bodyd > app-root > pqrpn-login > sp-ml-modal:nth-child(7)"));  // Shadow
-// este que sigue es el mismo localizador del intento 1, solo cambiaria el texto
+    // este que sigue es el mismo localizador del intento 1, solo cambiaria el texto
     public static final Target MSJ_USUARIO_CLAVE_INCORRECTO2 = Target.the("Mensajeerror2") // error: Te quedan 2 intentos de ingreso o se bloqueará el usuario..")
             .located(ByShadow.cssSelector(
                     "#modal > div > div.sp-ml-modal__content__box__sub-title > slot",    // elemento : Texto: Te quedan 2 intentos de ingreso o se bloqueará el usuario.
@@ -118,11 +111,12 @@ public class LoginPage {
             .located(ByShadow.cssSelector(
                     "#\\30 ",    // elemento: Boton: Desbloqueo Virtual
                     "#bodyd > app-root > pqrpn-login > sp-ml-modal:nth-child(5)"));  // Shadow
-///
+    ///
     public static final Target MSJ_EXCEDISTE_NRO_INTENTOS = Target.the("Mensaje: Excediste el número de intentos")
-        .located(ByShadow.cssSelector(
-                "#modal > div > div.sp-ml-modal__content__box__title",    // elemento : Texto: Excediste el número de intentos
-                "#bodyd > app-root > pqrpn-login > sp-ml-modal:nth-child(5)"));  // Shadow
+            .located(ByShadow.cssSelector(
+                    "#modal > div > div.sp-ml-modal__content__box__title",    // elemento : Texto: Excediste el número de intentos
+                    "#bodyd > app-root > pqrpn-login > sp-ml-modal:nth-child(5)"));  // Shadow
+
 
     public static final Target MSJ_BLOQUEO_USUARIO = Target.the("Mensaje: Por tu seguridad hemos bloqueado tu usuario. Puedes desbloquearlo virtualmente o llamar a la servílinea de tu ciudad.")
             .located(ByShadow.cssSelector(

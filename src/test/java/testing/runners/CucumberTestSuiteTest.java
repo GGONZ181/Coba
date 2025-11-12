@@ -13,8 +13,8 @@ import org.junit.runner.RunWith;
         //features = "src/test/resources/features/search/BandejaEntrada.feature",
         glue = "testing/stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
-        ,
-        tags = "@LoginExitoso"
+        //,
+        //tags = "@LoginExitoso"
         //tags = "@LoginIncorrecto1"
         //tags = "@LoginIncorrecto2"  // "@SolicitudesEstados"  //
         //tags = "@LoginIncorrecto3"

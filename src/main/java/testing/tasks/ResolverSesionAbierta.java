@@ -11,7 +11,7 @@ import java.time.Duration;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
-import static testing.ui.LoginPage.BOTON_INICIAR_AQUI;
+import static testing.ui.LoginPage.BOTON_INGRESAR_AQUI;
 import static testing.ui.LoginPage.MODAL_SESION_ACTIVA;
 
 public class ResolverSesionAbierta implements Task {
@@ -27,9 +27,14 @@ public class ResolverSesionAbierta implements Task {
                 WaitUntil.the(MODAL_SESION_ACTIVA, isVisible()).forNoMoreThan(5).seconds(),
                 Check.whether(MODAL_SESION_ACTIVA.resolveFor(actor).isVisible())
                         .andIfSo(
-                                WaitUntil.the(BOTON_INICIAR_AQUI, isVisible()).forNoMoreThan(10).seconds(),
-                                Click.on(BOTON_INICIAR_AQUI)
+                                WaitUntil.the(BOTON_INGRESAR_AQUI, isVisible()).forNoMoreThan(10).seconds(),
+                                Click.on(BOTON_INGRESAR_AQUI)
                         )
+                /* // Condicional: si aparece el botón del modal, resolver sesión abierta
+                    Check.whether(LoginPage.BOTON_INGRESAR_AQUI.resolveFor(actor).isPresent())
+                            .andIfSo(
+                                    ResolverSesionAbierta.siAparece()
+                            ),*/
         );
 
         System.out.println(">>> entro a resolver sesion abierta, sigue un if");
