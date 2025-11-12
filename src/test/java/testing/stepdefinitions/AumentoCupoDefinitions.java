@@ -1,17 +1,17 @@
 package testing.stepdefinitions;
 
-import io.cucumber.java.en.*;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actors.OnStage;
 import org.hamcrest.Matchers;
 import testing.questions.TextoQuestion;
 import testing.tasks.FiltrosBandejaEntrada;
-import testing.tasks.LoginExitoso;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static testing.ui.LoginPage.MNJ_TITULO_HOME;
 import static testing.ui.LoginPage.TITULO_HOME;
 
-public class BandejaDifinitions {
+public class AumentoCupoDefinitions {
 
 
     @When("se selecciona el estado Todas con filtro {string}, filtro {string} y filtro {string} luego se oprime el boton filtrar")
