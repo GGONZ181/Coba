@@ -43,19 +43,15 @@ Feature: Autenticación de usuario en la pagina web COBA
 			| usuario_falsotres   | password123    |
 
 
-#	#Redireccion Desbloquo virtual
-#	@LoginBtnDesbloqueoVirtual
-#	Scenario Outline: Redireccion a desbloqueo virtual luego de Inicio de sesión con credenciales incorrectas tercer intento
-#		When el especialista digita el usuario "<usuario>" y la contraseña "<clave>" incorrecta por tercera vez y presiona boton Desbloqueo virtual
-#		Then redireccion a pagina del banco de Desbloqueos y reinicios
-#
-#		Examples:
-#			| usuario            | clave     |
-#			| usuario_desbloqueo | DesbloqueoVirtual987    |
-#
-	#ojo falta la parte de que de clic al boton de desbloqueo y validar textos de esa pagina
+	#Redireccion Desbloquo virtual
+	@LoginBtnDesbloqueoVirtual
+	Scenario Outline: Redireccion a desbloqueo virtual luego de Inicio de sesión con credenciales incorrectas tercer intento
+		When el especialista digita el usuario "<usuario>" y la contraseña "<clave>" incorrecta por tercera vez y presiona boton Desbloqueo virtual
+		Then redireccion a pagina del banco de Desbloqueos y reinicios
 
-
+		Examples:
+			| usuario            | clave     |
+			| usuario_desbloqueo | DesbloqueoVirtual987    |
 
 
 
