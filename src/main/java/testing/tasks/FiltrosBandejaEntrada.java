@@ -63,6 +63,40 @@ public class FiltrosBandejaEntrada  implements Task {
                     // Espera a que cargue el home (o el elemento que indique login exitoso)
                     //  WaitUntil.the(HomePage.HOME_INDICATOR, isVisible()).forNoMoreThan(30).seconds()
 
+                    /* esto es lo que tenia adelantado daniela
+                           // Estado
+                                    actor.attemptsTo(
+                                            WaitUntil.the(CLIC_FILTRO_ESTADO, isClickable()),
+                                            Click.on(CLIC_FILTRO_ESTADO)
+                                            //,
+                                            //Click.on(OPCION_ESTADO_RECHAZADO.of(estado))
+                                    );
+
+                                    // Identificación
+                                    actor.attemptsTo(
+                                            Click.on(FILTRO_IDENTIFICACION),
+                                            Click.on(OPCION_IDENTIFICACION.of(identificacion))
+                                    );
+
+                                    // Tipo solicitud
+                                    actor.attemptsTo(
+                                            Click.on(FILTRO_TIPO_SOLICITUD),
+                                            Click.on(OPCION_TIPO_SOLICITUD.of(tipoSolicitud))
+                                    );
+
+                                    // Número (opcional)
+                                    if (!numero.equalsIgnoreCase("Vacio") && !numero.trim().isEmpty()) {
+                                        actor.attemptsTo(Enter.theValue(numero).into(FILTRO_NUMERO));
+                                    }
+
+                                    // Botón Filtrar
+                                    actor.attemptsTo(
+                                            Click.on(BOTON_FILTRAR)
+                                    );
+
+
+                     */
+
             );
             System.out.println(">>> consultó segun filtros");
             Thread.sleep(10000); // Espera 10 segundos
