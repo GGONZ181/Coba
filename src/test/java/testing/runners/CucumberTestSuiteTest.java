@@ -14,6 +14,14 @@ import org.junit.runner.RunWith;
         glue = "testing/stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         tags = "@LoginExitoso"  // "@SolicitudesEstados"  //
+        snippets = CucumberOptions.SnippetType.CAMELCASE
+        //,
+        //tags = "@LoginExitoso"  // "@SolicitudesEstados"  //
+        //tags = "@LoginIncorrecto1"
+        //tags = "@LoginIncorrecto2"  // "@SolicitudesEstados"  //
+        //tags = "@LoginIncorrecto3"
+        //tags = "@LoginBtnDesbloqueoVirtual"
+
 )
 public class CucumberTestSuiteTest {}
 

@@ -5,28 +5,24 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import org.hamcrest.Matchers;
-import testing.questions.TextoQuestion;
 import testing.ui.LoginPage;
 
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static testing.ui.LoginPage.*;
 
-public class LoginFallido implements Task {
+public class LoginFallidoIntDos implements Task {
     private final String usuario;
     private final String clave;
     //private final  boolean cerrarModal;
 
-    public LoginFallido(String usuario, String clave){
+    public LoginFallidoIntDos(String usuario, String clave){
         this.usuario = usuario;
         this.clave = clave;
     }
 
-    public static LoginFallido incorrecto(String usuario, String clave) {
-                return instrumented(LoginFallido.class, usuario, clave);
+    public static LoginFallidoIntDos incorrecto(String usuario, String clave) {
+                return instrumented(LoginFallidoIntDos.class, usuario, clave);
             }
 
     @Override
@@ -39,11 +35,11 @@ public class LoginFallido implements Task {
 
                     /// /TIT_USUARIO_CLAVE_INCORRECTO
                     //WaitUntil.the(LoginPage.BOTON_ABRIR_AQUI, isClickable()).forNoMoreThan(20).seconds(),
-                    WaitUntil.the(LoginPage.TITULO_USUARIO_CLAVE_INCORRECTO, isVisible()).forNoMoreThan(30).seconds()
-                    //,
-                    //Click.on(BTN_ENTENDIDO)
+                    WaitUntil.the(LoginPage.TITULO_USUARIO_CLAVE_INCORRECTO2, isVisible()).forNoMoreThan(30).seconds(),
+                    Click.on(BTN_ENTENDIDO),
+                    Click.on(BTN_INGRESAR)
             );
-            System.out.println(">>> presionó ingresar EN LOGIN FALLIDO1: " + MSJ_USUARIO_CLAVE_INCORRECTO1);
+            System.out.println(">>> presionó ingresar EN LOGIN FALLIDO1: " + MSJ_USUARIO_CLAVE_INCORRECTO2);
             Thread.sleep(10000); // Espera 10 segundos
 
 

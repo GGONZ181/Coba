@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Autenticación de usuario en la pagina web COBA" skipped="0" tests="1" time="45.28" timestamp="2025-10-17 07:54:57"><testcase name="Inicio de sesión Exitoso"><failure message="&#13;&#10;Expected: an element that is visible&#13;&#10;     but: no matching element found by [[ChromeDriver: chrome on windows (be868c6de5343ffeda9234c0d3706108)] -&gt; shadow dom locator: css: slot[name='content'] inside shadow dom located by sp-ml-modal:nth-of-type(5)]" type="java.lang.AssertionError">&#13;
-Expected: an element that is visible&#13;
-     but: no matching element found by [[ChromeDriver: chrome on windows (be868c6de5343ffeda9234c0d3706108)] -&gt; shadow dom locator: css: slot[name='content'] inside shadow dom located by sp-ml-modal:nth-of-type(5)]</failure><system-err>&#13;
-Expected: an element that is visible&#13;
-     but: no matching element found by [[ChromeDriver: chrome on windows (be868c6de5343ffeda9234c0d3706108)] -&gt; shadow dom locator: css: slot[name='content'] inside shadow dom located by sp-ml-modal:nth-of-type(5)]&#13;
-testing.tasks.LoginExitoso.performAs(LoginExitoso.java:35)&#13;
-testing.stepdefinitions.LoginDefinitions.digitarCredenciales(LoginDefinitions.java:19)&#13;
-</system-err></testcase></testsuite>

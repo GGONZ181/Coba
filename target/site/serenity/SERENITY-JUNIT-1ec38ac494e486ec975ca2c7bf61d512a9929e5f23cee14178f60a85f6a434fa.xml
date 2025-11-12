@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="Autenticación de usuario en el sistema" skipped="0" tests="1" time="21.9" timestamp="2025-07-18 04:13:03"><testcase name="Inicio de sesión con credenciales incorrectas primer intento"><failure message="&#10;Expected: &quot;Te quedan 2 intentos de ingreso o se bloqueará el usuario&quot;&#10;     but: was &quot;Te quedan 2 intentos de ingreso o se bloqueará el usuario.&quot;" type="java.lang.AssertionError">
-Expected: "Te quedan 2 intentos de ingreso o se bloqueará el usuario"
-     but: was "Te quedan 2 intentos de ingreso o se bloqueará el usuario."</failure><system-err>
-Expected: "Te quedan 2 intentos de ingreso o se bloqueará el usuario"
-     but: was "Te quedan 2 intentos de ingreso o se bloqueará el usuario."
-testing.stepdefinitions.LoginDefinitions.verificaMensajeError(LoginDefinitions.java:36)
-</system-err></testcase></testsuite>
