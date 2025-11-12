@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Autenticación de usuario en la pagina web COBA" skipped="0" tests="1" time="51.89" timestamp="2025-11-11 07:20:25"><testcase name="Redireccion a desbloqueo virtual luego de Inicio de sesión con credenciales incorrectas tercer intento"/></testsuite>

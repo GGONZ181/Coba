@@ -4,11 +4,15 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import org.hamcrest.Matchers;
 import testing.questions.TextoQuestion;
+import testing.ui.LoginPage;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 import static testing.ui.LoginPage.*;
 
 public class LoginFallido implements Task {
@@ -25,23 +29,23 @@ public class LoginFallido implements Task {
                 return instrumented(LoginFallido.class, usuario, clave);
             }
 
-    public static LoginExitoso conCredencialesYCierreDeModal(String usuario, String clave) {
-        return instrumented(LoginExitoso.class, usuario, clave );   //, true);
-    }
-
     @Override
     public <T extends Actor> void performAs(T actor) {
         try {
             actor.attemptsTo(
                 Enter.theValue(usuario).into(TXT_USUARIO),
                 Enter.theValue(clave).into(TXT_CLAVE),
-                Click.on(BTN_INGRESAR)
+                Click.on(BTN_INGRESAR),
+
+                    /// /TIT_USUARIO_CLAVE_INCORRECTO
+                    //WaitUntil.the(LoginPage.BOTON_ABRIR_AQUI, isClickable()).forNoMoreThan(20).seconds(),
+                    WaitUntil.the(LoginPage.TITULO_USUARIO_CLAVE_INCORRECTO, isVisible()).forNoMoreThan(30).seconds()
+                    //,
+                    //Click.on(BTN_ENTENDIDO)
             );
+            System.out.println(">>> presionó ingresar EN LOGIN FALLIDO1: " + MSJ_USUARIO_CLAVE_INCORRECTO1);
             Thread.sleep(10000); // Espera 10 segundos
 
-            actor.should(seeThat(TextoQuestion.title(ERROR1), Matchers.equalTo(MNJ_ERROR1))
-
-            );
 
            /* actor.attemptsTo(
                 Click.on(BTN_SALIDA_SEGURA)

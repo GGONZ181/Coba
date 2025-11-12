@@ -1,51 +1,24 @@
 package testing.stepdefinitions;
 
 import io.cucumber.java.en.*;
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import org.hamcrest.Matchers;
 import testing.questions.TextoQuestion;
-import testing.tasks.LoginExitoso;
+import testing.tasks.*;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static testing.ui.LoginPage.*;
 
 public class LoginDefinitions {
-    // Primer escenario
 
+    // Primer escenario Logueo Exitoso
     @When("el especialista digita su {string} y {string} correcto")
     public void digitarCredenciales(String usuario, String clave) {
         System.out.println(">>> Ejecutando login con usuario: " + usuario);
         OnStage.theActorInTheSpotlight().attemptsTo(
                 LoginExitoso.correctas(usuario, clave));
-
-
-
-
-
-
-/*
-    @When("el especialista digita su {string} y {string} correcto")
-    public void digitarCredenciales(String usuario, String clave) {
-        OnStage.withCurrentActor(LoginExitoso.correctas(usuario, clave));
-
- */
-
-        /*
-        LA FORMA INICIAL COMO LO TENIA
-            @When("el especialista digita su usuario y contraseña correcto")
-    public void digitarCredenciales() {
-        ACTOR.attemptsTo(LoginExitoso.correctas());
-    }
-
-    @Then("valida el texto de la pagina")
-    // este es el mensaje de cuando ya entra al home
-    public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(TITULO_HOME), Matchers.equalTo(MNJ_TITULO_HOME)));
-    // este es el de comparar el texto cuando ya tiene sesion abierta, pero no encuentra los elementos:
-    // public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(MENSAJE_SESION_ABIERTA), Matchers.equalTo(TXT_MNJ_SESION_ABIERTA)));
-    }
-
-         */
-
     }
 
     @Then("valida el texto de la pagina")
@@ -54,46 +27,83 @@ public class LoginDefinitions {
         OnStage.theActorInTheSpotlight().should(
                 seeThat(TextoQuestion.title(TITULO_HOME), Matchers.equalTo(MNJ_TITULO_HOME))
         );
-    // este es el de comparar el texto cuando ya tiene sesion abierta, pero no encuentra los elementos:
-     //public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(MENSAJE_SESION_ABIERTA), Matchers.equalTo(TXT_MNJ_SESION_ABIERTA)));
     }
 
     //Segundo escenario @LoginIncorrecto1
     @When("el especialista digita el {string} y la {string}")
-    public void elEspecialistaDigitaElYLa(String usuario, String contrasena) {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
+    public void digitarCredencialesIncorrectas(String usuario, String clave) {
+            System.out.println(">>> Ejecutando login con usuario incorrecto: " + usuario + " y/o claveincorrecta");
+            OnStage.theActorInTheSpotlight().attemptsTo(
+                    LoginFallido.incorrecto(usuario, clave));
     }
 
     @Then("valida mensaje de error intento uno")
     public void validaMensajeDeErrorIntentoUno() {
-        // Write code here that turns the phrase above into concrete actions
-        //throw new io.cucumber.java.PendingException();
-    }
+        // este es el mensaje: "Usuario o contraseña incorrecta
+                               // Te quedan 2 intentos de ingreso o se bloqueará el usuario."
+            OnStage.theActorInTheSpotlight().should(
+                    seeThat(TextoQuestion.title(MSJ_USUARIO_CLAVE_INCORRECTO1), Matchers.equalTo(MNJ_LOGININCORRECTO1)
+            ));
+        //Actor actor = null;
+        //actor.attemptsTo(Click.on(BTN_ENTENDIDO));
 
-/*
-    //TERCER FEATURE @LoginIncorrecto2
-    @When("el especialista digita el usuario {string} y la contraseña {string} por segunda vez")
+            // este es el de comparar el texto cuando ya tiene sesion abierta, pero no encuentra los elementos:
+            //public void verificaTexto() {ACTOR.should(seeThat(TextoQuestion.title(MENSAJE_SESION_ABIERTA), Matchers.equalTo(TXT_MNJ_SESION_ABIERTA)));
+
+        }
+
+
+    //Tercer Escenario @LoginIncorrecto2
+    @When("el especialista digita el usuario {string} y la contraseña {string} incorrecta por segunda vez")
     public void digitarCredencialesIncorrectasDos(String usuario, String clave) {
-        ACTOR.attemptsTo(LoginFallido.incorrecto(usuario,clave));
+        System.out.println(">>> Ejecutando login con usuario incorrecto2: " + usuario + " y/o claveincorrecta");
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                LoginFallidoIntDos.incorrecto(usuario, clave));
+       // ACTOR.attemptsTo(LoginFallido.incorrecto(usuario,clave));
     }
 
-    @Then("muestra mensaje: Te quedan 1 intentos de ingreso o se bloqueará el usuario")
-    public void verificaMensajeErrorDOS() {
-        ACTOR.should(seeThat(TextoQuestion.title(ERROR2), Matchers.equalTo(MNJ_ERROR2))
-        );
-    }
-    //CUARTO FEATURE @LoginIncorrecto2
-    @When("el especialista digita el usuario {string} y la contraseña {string} por segunda vez")
-    public void digitarCredencialesIncorrectasDOSDOS(String usuario, String clave) {
-        ACTOR.attemptsTo(LoginFallido.incorrecto(usuario,clave));
+    @Then("muestra mensaje Te quedan 1 intentos de ingreso o se bloqueará el usuario")
+    public void validaMensajeDeErrorIntentoDos() {
+        // este es el mensaje: "Usuario o contraseña incorrecta
+        //Te quedan 2 intentos de ingreso o se bloqueará el usuario."
+        OnStage.theActorInTheSpotlight().should(
+                seeThat(TextoQuestion.title(MSJ_USUARIO_CLAVE_INCORRECTO2), Matchers.equalTo(MNJ_LOGININCORRECTO2)
+                ));
     }
 
-    @Then("muestra mensaje: Te quedan 1 intentos de ingreso o se bloqueará el usuario")
-    public void verificaMensajeError() {
-        ACTOR.should(
-                seeThat(TextoQuestion.title(ERROR2), Matchers.equalTo(MNJ_ERROR2))
-        );
+    //Cuarto Escenario @LoginIncorrecto3 //Excediste el número de intentos
+    @When("el especialista digita el usuario {string} y la contraseña {string} incorrecta por tercera vez")
+    public void digitarCredencialesIncorrectasTres(String usuario, String clave) {
+        System.out.println(">>> Ejecutando login con usuario incorrecto3: " + usuario + " y/o claveincorrecta");
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                LoginFallidoIntTres.incorrecto(usuario, clave));
+                   // OnStage.theActorInTheSpotlight().attemptsTo(
+                     //       LoginFallidoIntTres.incorrecto(usuario, clave));
+                   // ACTOR.attemptsTo(LoginFallido.incorrecto(usuario,clave));
     }
-*/
+
+    @Then("muestra mensaje Excediste el número de intentos")
+    public void validaMensajeDeErrorIntentoTres() {
+        // este es el mensaje: "Usuario o contraseña incorrecta
+        //Te quedan 2 intentos de ingreso o se bloqueará el usuario."
+        OnStage.theActorInTheSpotlight().should(
+                seeThat(TextoQuestion.title(MSJ_BLOQUEO_USUARIO), Matchers.equalTo(MNJ_LOGININCORRECTO3)
+                ));
+    }
+
+    //Quinto Escenario@LoginBtnDesbloqueoVirtual // Boton Desbloqueo Virtual
+    @When("el especialista digita el usuario {string} y la contraseña {string} incorrecta por tercera vez y presiona boton Desbloqueo virtual")
+    public void digitarCredencialesIncorrectasBloqueo(String usuario, String clave) {
+        System.out.println(">>> Ejecutando login con usuario para Desbloqueo Virtual ");
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                DesbloqueoUsuario.pagdesbloqueo(usuario, clave));
+    }
+
+    @Then("redireccion a pagina del banco de Desbloqueos y reinicios")
+    public void validaMensajeDeDesbloqueos() {
+        OnStage.theActorInTheSpotlight().should(
+                seeThat(TextoQuestion.title(TITULO_DESBLOQUEO_VIRTUAL), Matchers.equalTo(MNJ_DESBLOQUEO)
+                ));
+
+    }
 }

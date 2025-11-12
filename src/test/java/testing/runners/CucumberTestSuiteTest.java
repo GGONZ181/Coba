@@ -9,11 +9,17 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber-reports/cucumber.html"},
         //features = "src/test/resources/features/search/" ,
-        //features = "src/test/resources/features/search/Login.feature",
-        features = "src/test/resources/features/search/BandejaEntrada.feature",
+        features = "src/test/resources/features/search/Login.feature",
+        //features = "src/test/resources/features/search/BandejaEntrada.feature",
         glue = "testing/stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
+        //,
         //tags = "@LoginExitoso"  // "@SolicitudesEstados"  //
+        //tags = "@LoginIncorrecto1"
+        //tags = "@LoginIncorrecto2"  // "@SolicitudesEstados"  //
+        //tags = "@LoginIncorrecto3"
+        //tags = "@LoginBtnDesbloqueoVirtual"
+
 )
 public class CucumberTestSuiteTest {}
 
