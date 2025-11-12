@@ -48,10 +48,11 @@ public class LoginExitoso implements Task {
                     Enter.theValue(usuario).into(TXT_USUARIO),
                     Enter.theValue(clave).into(TXT_CLAVE),
                     Click.on(BTN_INGRESAR),
-                    WaitUntil.the(MODAL_ESPERAUN_MOMENTO, isNotVisible()).forNoMoreThan(20).seconds(), // Espera a que desaparezca el modal de carga, los tres punticos de colores
-                    WaitUntil.the(MODAL_SESION_ACTIVA, isVisible()).forNoMoreThan(10).seconds()// valida si aparece el boton de ingresar aqui del modal:Ya tienes una sesión abierta
+                    WaitUntil.the(MODAL_ESPERAUN_MOMENTO, isNotVisible()).forNoMoreThan(20).seconds() // Espera a que desaparezca el modal de carga, los tres punticos de colores
+                    //,
+                    //WaitUntil.the(MODAL_SESION_ACTIVA, isVisible()).forNoMoreThan(10).seconds()// valida si aparece el boton de ingresar aqui del modal:Ya tienes una sesión abierta
             );
-
+            // con el siguiente if se podria eliminar la clase ResolverSisionAbierta, sin embargo, revisar por si se requiere para ese caso de prueba.
             if (LoginPage.BOTON_INGRESAR_AQUI.resolveFor(actor).isPresent()) {
                 System.out.println(">>> si encuentra el boton de sesion Ya abierta paso por aqui");
                 actor.attemptsTo(
@@ -65,7 +66,7 @@ public class LoginExitoso implements Task {
                     WaitUntil.the(LoginPage.TITULO_HOME, isVisible()).forNoMoreThan(30).seconds()// Validar que el texto del Home esté visible (login exitoso)
             );
 
-            System.out.println(">>> presionó ingresar EN LOGIN EXITOSO");
+            //System.out.println(">>> presionó ingresar EN LOGIN EXITOSO");
             Thread.sleep(10000); // Espera 10 segundos
 
         } catch (InterruptedException e) {

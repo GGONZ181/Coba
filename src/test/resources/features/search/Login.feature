@@ -21,28 +21,28 @@ Feature: Autenticación de usuario en la pagina web COBA
 
 
  	#intento 2
-#	@LoginIncorrecto2
-#	Scenario Outline: Inicio de sesión con credenciales incorrectas segundo intento
-#		When el especialista digita el usuario "<usuario>" y la contraseña "<clave>" incorrecta por segunda vez
-#		Then muestra mensaje Te quedan 1 intentos de ingreso o se bloqueará el usuario
-#		#And esta es pruebas que necesito hacer
-#
-#		Examples:
-#			| usuario            | clave          |
-#			| usuario_falsodos   | password123    |
-#
-#
-# 	#intento 3
-#	@LoginIncorrecto3
-#	Scenario Outline: Inicio de sesión con credenciales incorrectas tercer intento
-#		When el especialista digita el usuario "<usuario>" y la contraseña "<clave>" incorrecta por tercera vez
-#		Then muestra mensaje Excediste el número de intentos
-#
-#		Examples:
-#			| usuario         | clave     |
-#			| usuario_falsotres   | password123    |
-#
-#
+	@LoginIncorrecto2
+	Scenario Outline: Inicio de sesión con credenciales incorrectas segundo intento
+		When el especialista digita el usuario "<usuario>" y la contraseña "<clave>" incorrecta por segunda vez
+		Then muestra mensaje Te quedan 1 intentos de ingreso o se bloqueará el usuario
+		#And esta es pruebas que necesito hacer
+
+		Examples:
+			| usuario            | clave          |
+			| usuario_falsodos   | password123    |
+
+
+  	#intento 3
+	@LoginIncorrecto3
+	Scenario Outline: Inicio de sesión con credenciales incorrectas tercer intento
+		When el especialista digita el usuario "<usuario>" y la contraseña "<clave>" incorrecta por tercera vez
+		Then muestra mensaje Excediste el número de intentos
+
+		Examples:
+			| usuario         | clave     |
+			| usuario_falsotres   | password123    |
+
+
 #	#Redireccion Desbloquo virtual
 #	@LoginBtnDesbloqueoVirtual
 #	Scenario Outline: Redireccion a desbloqueo virtual luego de Inicio de sesión con credenciales incorrectas tercer intento
