@@ -1,12 +1,12 @@
 Feature: Autenticación de usuario en la pagina web COBA
 
-Background:
-	Given que el usuario se encuentra en la pagina de Login
+	Background:
+		Given que el usuario se encuentra en la pagina de Login
 
 	@LoginExitoso
 	Scenario: Inicio de sesión Exitoso
-	When el especialista digita su "iparada" y "Bogota123*" correcto
-	Then valida el texto de la pagina
+		When el especialista digita su "iparada" y "Bogota123*" correcto
+		Then valida el texto de la pagina
 
 
  	#intento 1
