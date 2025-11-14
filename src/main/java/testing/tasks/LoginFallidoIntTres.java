@@ -42,6 +42,8 @@ public class LoginFallidoIntTres implements Task {
                     Click.on(BTN_ENTENDIDO),
                     Click.on(BTN_INGRESAR),
                     WaitUntil.the(LoginPage.BTN_DESBLOQUEO_VIRTUAL, isVisible()).forNoMoreThan(30).seconds()
+
+
             );
             System.out.println(">>> presionó ingresar EN LOGIN FALLIDO: " + MSJ_BLOQUEO_USUARIO);
             Thread.sleep(10000); // Espera 10 segundos

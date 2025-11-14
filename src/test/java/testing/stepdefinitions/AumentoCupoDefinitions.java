@@ -15,7 +15,7 @@ public class AumentoCupoDefinitions {
 
 
     @When("se selecciona el estado Todas con filtro {string}, filtro {string} y filtro {string} luego se oprime el boton filtrar")
-     public void Filtrodesolicitudesportodoslosestados(String identificacion, String tipo_solicitud, String numero) {
+     public void consultaCliente(String identificacion, String tipo_solicitud, String numero) {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 FiltrosBandejaEntrada.Filtrodesolicitudesportodoslosestados(identificacion, tipo_solicitud, numero));
     }
