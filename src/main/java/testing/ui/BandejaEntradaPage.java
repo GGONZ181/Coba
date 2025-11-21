@@ -71,4 +71,10 @@ public class BandejaEntradaPage {
 
     public static final Target FILAS_TABLA = Target.the("filas de la tabla")
             .locatedBy("//table//tbody//tr");
+
+    public static final Target OPCION_CREACION_COBA = Target.the("Opcion Creacion Coba")
+            .located(ByShadow.cssSelector(
+                    "#item__3 > div",        // Selector interno final
+                    "#bodyd > app-root > pqrpn-home > app-sidebar > div > div.home-main-container_sidebar > sp-ml-sidebar"                               // Shadow host nivel 2
+            ));
 }

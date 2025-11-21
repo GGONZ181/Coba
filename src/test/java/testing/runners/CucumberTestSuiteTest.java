@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/search/Login.feature",
         //features = "src/test/resources/features/search/BandejaEntrada.feature",
         //features = "src/test/resources/features/search/AumentoCupo.feature",
+        //features = "src/test/resources/features/search/CreacionCupo.feature",
         glue = "testing/stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE
         //,

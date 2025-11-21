@@ -14,13 +14,13 @@ import static testing.ui.LoginPage.TITULO_HOME;
 public class AumentoCupoDefinitions {
 
 
-    @When("se selecciona el estado Todas con filtro {string}, filtro {string} y filtro {string} luego se oprime el boton filtrar")
+    @When("se da clic en el botón buscar")
      public void consultaCliente(String identificacion, String tipo_solicitud, String numero) {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 FiltrosBandejaEntrada.Filtrodesolicitudesportodoslosestados(identificacion, tipo_solicitud, numero));
     }
 
-    @Then("debe mostrar los datos que cumplen con los filtros seleccionados")
+    @Then("se muestra la pantalla Datos del corresponsal en CRM")
     // este es el mensaje de cuando ya entra al home
     public void verificaTexto() {OnStage.theActorInTheSpotlight().should(seeThat(TextoQuestion.title(TITULO_HOME), Matchers.equalTo(MNJ_TITULO_HOME)));
         // este es el de comparar el texto cuando ya tiene sesion abierta, pero no encuentra los elementos:
